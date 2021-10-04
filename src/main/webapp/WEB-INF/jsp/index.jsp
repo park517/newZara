@@ -40,19 +40,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_right_content">
-                            <span>Top destinations</span>
-                            <a href="#">Asia</a>
-                            <a href="#">Europe</a>
-                            <a href="#">America</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_social_icon">
-                            <a href="#"><i class="flaticon-facebook"></i></a>
-                            <a href="#"><i class="flaticon-twitter"></i></a>
-                            <a href="#"><i class="flaticon-skype"></i></a>
-                            <a href="#"><i class="flaticon-instagram"></i></a>
-                            <span><i class="flaticon-phone-call"></i>+880 356 257 142</a></span>
+                            <span><a href = "#">로그인</a></span>
+                            <span><a href = "#">회원가입</a></span>
+                    <!--         <span><a href = "#">로그아웃</a></span>
+                            <span><a href = "#">마이페이지</a></span> -->
                         </div>
                     </div>
                 </div>
@@ -63,7 +58,7 @@
                 <div class="row align-items-center ">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
-                            <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                            <a class="navbar-brand" href="index.html"> <img src="img/newzara.png" alt="logo"> </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -80,37 +75,37 @@
                                         <a class="nav-link" href="about.html">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="packages.html">packages</a>
+                                        <a class="nav-link" href="packages.html">공지사항</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Blog
+                                            중고장터
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">Blog</a>
-                                            <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                            <a class="dropdown-item" href="blog.html">중고거래</a>
+                                            <a class="dropdown-item" href="single-blog.html">거래후기</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            pages
+                                            커뮤니티
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                            <a class="dropdown-item" href="top_place.html">top place</a>
-                                            <a class="dropdown-item" href="tour_details.html">tour details</a>
-                                            <a class="dropdown-item" href="elements.html">Elements</a>
+                                            <a class="dropdown-item" href="top_place.html">왁자지껄</a>
+                                            <a class="dropdown-item" href="tour_details.html">뭐넣지?</a>
+                                            <a class="dropdown-item" href="elements.html">기타</a>
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
+                                        <a class="nav-link" href="contact.html">etc</a>
                                     </li>
                                 </ul>
                             </div>
-                            <a href="#" class="btn_1 d-none d-lg-block">book now</a>
+<!--                             <a href="#" class="btn_1 d-none d-lg-block">book now</a> -->
                         </nav>
                     </div>
                 </div>
@@ -126,14 +121,36 @@
             <div class="row">
                 <div class="col-lg-12">
                             <div class="row justify-content-end">
-                                <div class="ol-lg-6 col-md-6" style="background-color: white ; height: 400px; max-width: 30%;">
-                                        <h5>로그인</h5>
+                                <div class="ol-lg-6 col-md-3" style="background-color: white ; height: 260px; max-width: 40%;">
+                                        <!-- Box 내부 -->
+                                        <div style="text-align:center; margin-top:7px;">
+                                        	<span>로그인</span>
+                                        </div>
+                                        <div style="width:100%;">
+			                                <div class="form-group" style="margin-top: 20px;">
+			                                    <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your ID'" placeholder='Enter your ID'>
+			                                </div>
+			                            </div>
+                                        <div  style="width:100%;">
+			                                <div class="form-group">
+			                                    <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your PW'" placeholder='Enter your PW'>
+			                                </div>
+			                            </div>
+			                            <div  style="width:100%;">
+				                            <button type="submit" class="button button-contactForm btn_1" style="width: 100%;">Login</button>
+				                        </div>
+				                        <div style="text-align:center; margin-top : 5px;">
+					                        <div  style="width:100%;">
+					                        	<span><a href="#">아이디</a> </span>|<span><a href="#"> 비밀번호</a></span> 찾기
+					                        	<p><a href="#">회원가입</a></p>
+					                        </div>
+				                        </div>
+				                        <!-- Box 내부 끝 -->
                                 </div>
                             </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
     <!--top place end-->
 
@@ -327,8 +344,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
-                        <h2>We offered best services</h2>
-                        <p>Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged.</p>
+                        <h2>About Bicycle</h2>
+                        <p>Hello World!<br> Let's find out about bicycles.</p>
                     </div>
                 </div>
             </div>
@@ -336,28 +353,28 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_ihotel_list">
                         <img src="img/services_1.png" alt="">
-                        <h3> <a href="#"> Transportation</a></h3>
+                        <h3> <a href="#"> Rode</a></h3>
                         <p>All transportation cost we bear</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_ihotel_list">
                         <img src="img/services_2.png" alt="">
-                        <h3> <a href="#"> Guidence</a></h3>
+                        <h3> <a href="#"> Hybrid</a></h3>
                         <p>We offer the best guidence for you</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_ihotel_list">
                         <img src="img/services_3.png" alt="">
-                        <h3> <a href="#"> Accomodation</a></h3>
+                        <h3> <a href="#"> 고</a></h3>
                         <p>Luxarious and comfortable</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_ihotel_list">
                         <img src="img/services_4.png" alt="">
-                        <h3> <a href="#"> Discover world</a></h3>
+                        <h3> <a href="#"> 고</a></h3>
                         <p>Best tour plan for your next tour</p>
                     </div>
                 </div>
@@ -370,61 +387,21 @@
     <footer class="footer-area">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-sm-6 col-md-5">
+                <div class="col-sm-6 col-md-4">
                     <div class="single-footer-widget">
-                        <h4>Discover Destination</h4>
-                        <ul>
-                            <li><a href="#">Miami, USA</a></li>
-                            <li><a href="#">California, USA</a></li>
-                            <li><a href="#">London, UK</a></li>
-                            <li><a href="#">Saintmartine, Bangladesh</a></li>
-                            <li><a href="#">Mount Everast, India</a></li>
-                            <li><a href="#">Sidney, Australia</a></li>
-                            <li><a href="#">Miami, USA</a></li>
-                            <li><a href="#">California, USA</a></li>
-                            <li><a href="#">London, UK</a></li>
-                            <li><a href="#">Saintmartine, Bangladesh</a></li>
-                            <li><a href="#">Mount Everast, India</a></li>
-                            <li><a href="#">Sidney, Australia</a></li>
-                        </ul>
-
+                        <h4>Contact Us</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <div class="single-footer-widget">
-                        <h4>Subscribe Newsletter</h4>
-                        <div class="form-wrap" id="mc_embed_signup">
-                            <form target="_blank"
-                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                method="get" class="form-inline">
-                                <input class="form-control" name="EMAIL" placeholder="Your Email Address"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
-                                    required="" type="email">
-                                <button class="click-btn btn btn-default text-uppercase"> <i class="far fa-paper-plane"></i>
-                                </button>
-                                <div style="position: absolute; left: -5000px;">
-                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-                                        type="text">
-                                </div>
-
-                                <div class="info"></div>
-                            </form>
-                        </div>
-                        <p>Subscribe our newsletter to get update news and offers</p>
+                    <div class="single-footer-widget footer_icon">
+                        <span>sm1020v@naver.com</span>
+                        <p>SM : 010-2936-0433</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-3">
+                <div class="col-sm-6 col-md-4">
                     <div class="single-footer-widget footer_icon">
-                        <h4>Contact Us</h4>
-                        <p>4156, New garden, New York, USA
-                                +880 362 352 783</p>
-                        <span>contact@martine.com</span>
-                        <div class="social-icons">
-                            <a href="#"><i class="ti-facebook"></i></a>
-                            <a href="#"><i class="ti-twitter-alt"></i></a>
-                            <a href="#"><i class="ti-pinterest"></i></a>
-                            <a href="#"><i class="ti-instagram"></i></a>
-                        </div>
+                        <span>park517777@naver.com</span>
+                        <p>CG : 010-7736-8592</p>
                     </div>
                 </div>
             </div>
@@ -434,7 +411,7 @@
                 <div class="col-lg-12">
                     <div class="copyright_part_text text-center">
                         <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Sungmi Yun & Chungyu Park
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
