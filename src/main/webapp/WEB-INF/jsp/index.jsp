@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-lg-12">
                             <div class="row justify-content-end">
-                                <div class="ol-lg-6 col-md-3" style="background-color: white ; height: 260px; max-width: 40%;">
+                                <div class="ol-lg-6 col-md-3" style="background-color: white ; height: 280px; padding : 10px ; max-width: 40%; border-radius: 5%;">
                                         <!-- Box 내부 -->
                                         <div style="text-align:center; margin-top:7px;">
                                         	<span>로그인</span>
