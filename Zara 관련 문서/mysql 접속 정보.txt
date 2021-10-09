@@ -1,0 +1,4 @@
+user :  bdf1860f130679
+password : 18e60bc8
+host : us-cdbr-east-03.cleardb.com:3306
+db명 : heroku_d21d4848ee15928

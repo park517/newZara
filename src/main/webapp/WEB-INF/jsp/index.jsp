@@ -6,6 +6,23 @@
 <head>
 	<!-- 공통 css 단  -->
 	<jsp:include page="/WEB-INF/include/commonCss.jsp"></jsp:include>
+
+	<style>
+		.btn_login {
+			height: 30px;
+			font-size : 12px;
+			line-height : 3px;
+			color : black;
+		}
+		#btn_kakao_login {
+			background : yellow;
+		}
+		#btn_kakao_login : hover {
+			color : black;
+			
+		}
+	</style>
+
 </head>
 
 <body>
@@ -35,8 +52,9 @@
 			                                    <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your PW'" placeholder='Enter your PW'>
 			                                </div>
 			                            </div>
-			                            <div  style="width:100%;">
-				                            <button type="submit" class="button button-contactForm btn_1" style="width: 100%;">Login</button>
+			                            <div style="width:100%;">
+				                            <button type="button" id='btn_kakao_login' class="button button-contactForm btn_1 btn_login" style="width: 100%;">카카오 계정 로그인</button>
+				                            <button type="submit" class="button button-contactForm btn_1 btn_login" style="width: 100%;">Login</button>
 				                        </div>
 				                        <div style="text-align:center; margin-top : 5px;">
 					                        <div  style="width:100%;">
