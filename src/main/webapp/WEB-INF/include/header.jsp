@@ -49,7 +49,7 @@
                                         <a class="nav-link" href="about.html">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="packages.html">공지사항</a>
+                                        <a class="nav-link" href="notice.html">공지사항</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
@@ -58,8 +58,8 @@
                                             중고장터
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">중고거래</a>
-                                            <a class="dropdown-item" href="single-blog.html">거래후기</a>
+                                            <a class="dropdown-item" href="trade.html">중고거래</a>
+                                            <a class="dropdown-item" href="trade_review.html">거래후기</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -69,9 +69,9 @@
                                             커뮤니티
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                            <a class="dropdown-item" href="top_place.html">왁자지껄</a>
-                                            <a class="dropdown-item" href="tour_details.html">뭐넣지?</a>
-                                            <a class="dropdown-item" href="elements.html">기타</a>
+                                            <a class="dropdown-item" href="doran.html">도란도란</a>
+                                            <a class="dropdown-item" href="bungae.html">번개모임</a>
+                                            <a class="dropdown-item" href="question.html">궁금한디</a>
                                         </div>
                                     </li>
                                     <li class="nav-item">
