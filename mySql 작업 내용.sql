@@ -33,3 +33,24 @@ CREATE TABLE TABLE_USER (
 show tables;
 
 ----------------------------------------------------
+
+-- 날짜 : 2021/10/11
+-- 작업자 : Sungmi
+-- 작업내용 : 커뮤니티 테이블 생성
+
+CREATE TABLE table_board (
+	
+	board_no INT NOT NULL AUTO_INCREMENT,
+	category_no INT NOT NULL,
+	board_title VARCHAR(100),
+	board_contents BLOB,
+	user_no INT NOT NULL,
+	board_like INT,
+	board_hit INT,
+	board_c_date date,
+	board_u_date date,
+	board_d_date date,
+	PRIMARY KEY (board_no)
+	
+)
+
