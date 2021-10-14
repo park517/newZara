@@ -21,4 +21,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.getUserList();
 	}
 
+	// 회원가입 하기 
+	@Override
+	public void register(UserVO userVO) {
+		
+		userMapper.register(userVO);
+		
+	}
+
 }

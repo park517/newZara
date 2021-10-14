@@ -2,8 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.zara.mapper.UserMapper">
 
-    <select id="getUserList" resultType="com.example.zara.model.UserVO">
+    <select id="getUserList" resultType="userVO">
         SELECT * FROM table_user
     </select>
 
+	<insert id="register" parameterType="userVO">
+		insert into table_user
+			(
+				user_id,
+				user_email,
+				user_state,
+				user_password,
+				user_name,
+				user_nick,
+				user_address,
+				user_phone,
+				user_birth,
+				user_c_date
+			)
+			
+		VALUES
+			(
+				#{userId},
+				#{userEmail},
+				'0',
+				#{userPassword},
+				#{userName},
+				#{userNick},
+				#{userAddress},
+				#{userPhone},
+				#{userGender},
+				#{userBirth},
+				now()
+				
+			
+			)
+	
+	
+	</insert>
 </mapper>

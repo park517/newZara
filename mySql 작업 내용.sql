@@ -18,6 +18,7 @@ CREATE TABLE TABLE_USER (
     user_state int,
     user_password varchar(100),
     user_name varchar(100),
+    user_nice varchar(100),
     user_address varchar(100),
     user_phone varchar(100),
     user_gender varchar(100),

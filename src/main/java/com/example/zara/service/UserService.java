@@ -8,4 +8,7 @@ public interface UserService {
 
 	// 유저 목록 불러오기 
 	public List<UserVO> getUserList();
+	
+	// 회원 가입 하기
+	public void register(UserVO userVO);
 }
