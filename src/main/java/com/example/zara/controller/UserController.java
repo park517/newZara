@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.zara.model.UserVO;
 import com.example.zara.service.UserService;
@@ -12,6 +13,7 @@ import com.example.zara.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,16 +35,16 @@ public class UserController {
 	@PostMapping("/register")
 	
 	public String doRegister(UserVO userVO ,@RequestParam("zipCode") String zipCode, @RequestParam("loadAddr") String loadAddr , @RequestParam("detailAddr") String detailAddr) {
-		
+		// 주소 스트링 처리 
 		String addr = zipCode+"_"+loadAddr+"_"+detailAddr;
-		userVO.setUserAddress(addr);
-//		userService.register(userVO);
-		List<UserVO> userList = new ArrayList<>();
-		
-		userList = userService.getUserList();
-		
-		System.out.println(userList);
-		return "register";
+		// 주민등록번호 형식 바꿔주기 
+		String jumin = userVO.getUserBirth();
+		jumin.replace(",", "-");
+		userVO.setUserBirth(jumin);
+		userVO.setUserAddress(addr); 
+		userService.register(userVO);
+
+		return "index";
 		}
 	
 	// 유저목록 불러오기 
@@ -51,5 +53,12 @@ public class UserController {
 		List<UserVO> userList = userService.getUserList();
 		model.addAttribute("userList",userList);
 		return "register";
+	}
+	
+	@PostMapping("/test")
+	@ResponseBody
+	public long ajaxTest(@Param("userId") String userId) {
+		int idCount = userService.checkId(userId);
+		return idCount;
 	}
 }

@@ -1,11 +1,17 @@
+// 중북 체크 여부 
+let idCheckYn = false;
+let passCheckYn = false;
 $( document ).ready(function() {
+	// 회원가입 버튼 눌렀을 시 
 	$('#btnRegister').click( function() {
 		let check = confirm("회원 가입 하시겠습니까?") 
 		if(check) {
-				$('#registerForm').submit();
+				register();
+				//$('#registerForm').submit();
 		}
 	})
 	
+	// 취소 버튼 눌렀을 시 
 	$('#btnCancle').click( function() {
 		let check = confirm("이전화면으로 돌아가시겠습니까?") 
 		if(check) {
@@ -13,17 +19,77 @@ $( document ).ready(function() {
 		}
 	})
 	
+	// 아이디 중복체크 클릭 시 
 	$('#checkId').click( function() {
-		
+		 checkId();
 	})
-
+	
+	$('#userId').keydown( function() {
+		idCheckYn = false;
+	})
+	
+	// 비밀번호 일치 확인
+	$('#userPassword2').blur( function() {
+		if($('#userPassword').val() != $('#userPassword2').val()) {
+			alert("두 비밀번호가 일치하지 않습니다.");
+			$('#userPassword2').val("");
+			$('#passChecking').css("display","none");
+		}
+		else {
+			$('#passChecking').css("display","");	
+			passCheckYn = true;
+		}
+	})
 });
 
 
 
+// ajax로 아이디 중복체크
+function checkId() {
+	
+	function checkResult(data,a,b) {
+		if(data != 0 ) {
+			alert("중복된 아이디 입니다. 다시 입력해주세요");
+			$('#userId').val("");
+			idCheckYn = true;
+		}
+		else {
+			alert("사용 가능한 아이디 입니다.");
+		}
+	}
+	
+	
+	var param = {
+		userId : $('#userId').val()
+	}
+	zaraAjax("/user/test",param,"POST",checkResult);
+	
 
+}
 
-
+// 회원가입 했을 시 유효성 체크 
+function register() {
+	var idCheck = inputVaildCheck(userId,"아이디를 입력해주세요","text");
+	if(!idCheck)  return false;
+	var passCheck = inputVaildCheck(userPassword,"비밀번호를 입력해주세요","text");
+	if(!passCheck)  return false;
+	var passCheck1 =inputVaildCheck(userPassword2,"비밀번호 확인을 입력해주세요","text");
+	if(!passCheck1)  return false;
+	var nameCheck = inputVaildCheck(userName,"이름을 입력해주세요","text");
+	if(!nameCheck)  return false;
+	var nickCheck = inputVaildCheck(userNick,"닉네임을 입력해주세요","text");
+	if(!nickCheck)  return false;
+	var emailCheck = inputVaildCheck(userEmail,"이메일을 입력해주세요","text");
+	if(!emailCheck)  return false;
+	var addrCheck = inputVaildCheck(sample4_postcode,"주소를 입력해주세요","text");
+	if(!addrCheck)  return false;
+	var telCheck = inputVaildCheck(userPhone,"햔두폰번호를 입력해주세요","text");
+	if(!telCheck)  return false;
+	var juminCheck = inputVaildCheck(userBirth,"주민번호를 입력해주세요","text");
+	if(!juminCheck)  return false;
+	
+	$('#registerForm').submit();
+}
 
 
 
@@ -55,14 +121,7 @@ function sample4_execDaumPostcode() {
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById('sample4_postcode').value = data.zonecode;
             document.getElementById("sample4_roadAddress").value = roadAddr;
-            document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
 
-            // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-            if (roadAddr !== '') {
-                document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-            } else {
-                document.getElementById("sample4_extraAddress").value = '';
-            }
 
             var guideTextBox = document.getElementById("guide");
             // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.

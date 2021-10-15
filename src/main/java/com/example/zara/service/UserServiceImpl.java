@@ -29,4 +29,11 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	// 중복체크 하기 
+	@Override
+	public int checkId(String userId) {
+		// TODO Auto-generated method stub
+		return userMapper.checkId(userId);
+	}
+
 }

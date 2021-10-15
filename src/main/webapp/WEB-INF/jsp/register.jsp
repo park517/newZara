@@ -7,6 +7,8 @@
 	<!-- 공통 css 단  -->
 	<jsp:include page="/WEB-INF/include/commonCss.jsp"></jsp:include>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="/pageJs/commonAjax.js"></script>
+	<script src="/pageJs/common.js"></script>
 	<script src="/pageJs/register.js"></script>
 	<style>
 	
@@ -58,7 +60,7 @@
 		margin-bottom: 5px;
 	}
 	
-	#checkId {
+	#checkId , #passChecking {
 		margin-left : 30px;
 	}
 
@@ -91,15 +93,16 @@
 		                <tr>
 		                    <td class = ""><label for="">아이디</label></td>
 		                    <td><input name="userId" id="userId" type="text" class="form-control"></td>
-		                    <td><button id="checkId" class = "btn btn-secondary">중복체크</button></td>
+		                    <td><button type ="button" id="checkId" class = "btn btn-secondary">중복체크</button></td>
 		                </tr>
 		                <tr>
 		                    <td><label for="">비밀번호</label></td>
-		                    <td><input name="userPassword" id="userPassword"  type="text" class="form-control"></td>
+		                    <td><input name="userPassword" id="userPassword"  type="password" class="form-control"></td>
 		                </tr>
 		                <tr>
 		                    <td><label for="">비밀번호 확인</label></td>
-		                    <td><input id="userPassword2" type="text" class="form-control"></td>
+		                    <td><input id="userPassword2" type="password" class="form-control"></td>
+		                    <td><span id="passChecking" style = "color :red ; display : none; ">비밀번호가 일치합니다</span></td>
 		                </tr>
 		            </table>
 					<div class = "title">회원 정보</div>

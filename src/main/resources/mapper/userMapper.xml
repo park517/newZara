@@ -17,6 +17,7 @@
 				user_nick,
 				user_address,
 				user_phone,
+				user_gender,
 				user_birth,
 				user_c_date
 			)
@@ -40,4 +41,12 @@
 	
 	
 	</insert>
+	
+	<select id="checkId" resultType="int">
+		    SELECT count(*)
+            FROM table_user 
+            WHERE user_id = #{userId}
+			AND  user_state = 0
+			;
+	</select>
 </mapper>
