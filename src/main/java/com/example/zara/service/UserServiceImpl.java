@@ -35,5 +35,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.checkId(userId);
 	}
+	
+	// 로그인 하기
+	@Override
+	public UserVO login(String userId, String userPassword) {
+		// TODO Auto-generated method stub
+		return userMapper.login(userId, userPassword);
+	}
 
 }

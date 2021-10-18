@@ -62,7 +62,7 @@ function checkId() {
 	var param = {
 		userId : $('#userId').val()
 	}
-	zaraAjax("/user/test",param,"POST",checkResult);
+	zaraAjax("/user/idCheck",param,"POST",checkResult);
 	
 
 }

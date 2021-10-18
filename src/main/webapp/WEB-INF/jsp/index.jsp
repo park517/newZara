@@ -1,11 +1,14 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!doctype html>
 <html lang="ko">
 
 <head>
 	<!-- 공통 css 단  -->
 	<jsp:include page="/WEB-INF/include/commonCss.jsp"></jsp:include>
+	<script src="/pageJs/commonAjax.js"></script>
+	<script src="/pageJs/common.js"></script>
+	<script src="/pageJs/index.js"></script>
 
 	<style>
 		.btn_login {
@@ -26,6 +29,7 @@
 </head>
 
 <body>
+
    <!--::header part start::-->
 	<jsp:include page="/WEB-INF/include/header.jsp"></jsp:include>
     <!-- Header part end-->
@@ -39,31 +43,42 @@
                             <div class="row justify-content-end">
                                 <div class="ol-lg-6 col-md-3" style="background-color: white ; height: 280px; padding : 10px ; max-width: 40%; border-radius: 5%;">
                                         <!-- Box 내부 -->
-                                        <div style="text-align:center; margin-top:7px;">
-                                        	<span>로그인</span>
-                                        </div>
-                                        <div style="width:100%;">
-			                                <div class="form-group" style="margin-top: 20px;">
-			                                    <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your ID'" placeholder='Enter your ID'>
-			                                </div>
-			                            </div>
-                                        <div  style="width:100%;">
-			                                <div class="form-group">
-			                                    <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your PW'" placeholder='Enter your PW'>
-			                                </div>
-			                            </div>
-			                            <div style="width:100%;">
-				                            <button type="button" id='btn_kakao_login' class="button button-contactForm btn_1 btn_login" style="width: 100%;">카카오 계정 로그인</button>
-				                            <button type="submit" class="button button-contactForm btn_1 btn_login" style="width: 100%;">Login</button>
-				                        </div>
-				                        <div style="text-align:center; margin-top : 5px;">
-					                        <div  style="width:100%;">
-					                        	<span><a href="#">아이디</a> </span>|<span><a href="#"> 비밀번호</a></span> 찾기
-					                        	<p><a href="/user/register">회원가입</a></p>
-					                        </div>
-				                        </div>
+	                                   <div style="text-align:center; margin-top:7px;">
+	                                   	   <span>로그인</span>
+	                                   </div>
+	                                   <div style="width:100%;">
+				                           <div class="form-group" style="margin-top: 20px;">
+				                               <input class="form-control" name="userId" id="userId" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your ID'" placeholder='Enter your ID'>
+				                           </div>
+				                       </div>
+	                                   <div  style="width:100%;">
+				                           <div class="form-group">
+				                               <input class="form-control" name="userPassword" id="userPassword" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your PW'" placeholder='Enter your PW'>
+				                           </div>
+				                       </div>
+				                       
+				                       <c:if test="${empty loginUser}">
+				                       	   ${loginUser.userNo}
+					                       <div style="width:100%;">
+						                        <button type="button" id='btn_kakao_login' class="button button-contactForm btn_1 btn_login" style="width: 100%;">카카오 계정 로그인</button>
+						                        <button type="button" id="btn_login" class="button button-contactForm btn_1 btn_login" style="width: 100%;">Login</button>
+						                   </div>
+					                   </c:if>
+					                   
+					                   <c:if test="${not empty loginUser}">
+					                  	   <div style="width:100%;">
+						                        <button type="button" id="btn_logout" class="button button-contactForm btn_1 btn_login" style="width: 100%;">Logout</button>
+						                   </div>
+					                   </c:if>
+					                   <div style="text-align:center; margin-top : 5px;">
+						                    <div  style="width:100%;">
+						                        <span><a href="#">아이디</a> </span>|<span><a href="#"> 비밀번호</a></span> 찾기
+						                        <p><a href="/user/register">회원가입</a></p>
+						                    </div>
+					                    </div>
 				                        <!-- Box 내부 끝 -->
                                 </div>
+                  
                             </div>
                     </div>
                 </div>

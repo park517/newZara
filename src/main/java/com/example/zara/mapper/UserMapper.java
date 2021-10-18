@@ -19,4 +19,7 @@ public interface UserMapper {
 	// 중복체크 하기
 	public int checkId(@Param("userId") String userId);
 	
+	// 로그인 하기
+	public UserVO login(@Param("userId") String userId , @Param("userPassword") String userPassword);
+	
 }

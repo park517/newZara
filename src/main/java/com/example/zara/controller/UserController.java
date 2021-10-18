@@ -13,6 +13,8 @@ import com.example.zara.service.UserService;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,11 +56,41 @@ public class UserController {
 		model.addAttribute("userList",userList);
 		return "register";
 	}
-	
-	@PostMapping("/test")
+	// 아이디 중복 체크 
+	@PostMapping("/idCheck")
 	@ResponseBody
 	public long ajaxTest(@Param("userId") String userId) {
 		int idCount = userService.checkId(userId);
 		return idCount;
+	}
+	// 로그인
+	@PostMapping("/login")
+	@ResponseBody
+	public UserVO doLogin (HttpSession session, @Param("userId") String userId , @Param("userPassword") String userPassword) {
+		
+		// 아이디 , 패스워드에 맞는 유저 정보 가져오기
+		UserVO user = userService.login(userId, userPassword);
+
+		// 유저 정보가 없을 시 ( 실패 )
+		if(user == null) {
+			UserVO emptyUser = new UserVO();
+			return emptyUser;
+		}
+		
+		// 로그인 성공 시 세션 Set
+		else {
+			session.setAttribute("loginUser", user);
+			return user;
+		}
+
+	}
+
+	// 로그아웃 
+	@GetMapping("/logout")
+	public String logout(Model model, HttpSession session) {
+		session.removeAttribute("loginUser");
+		model.addAttribute("msg","로그아웃되었습니다.");
+		model.addAttribute("back",true);
+		return "common/redirect";
 	}
 }

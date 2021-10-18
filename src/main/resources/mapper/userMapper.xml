@@ -49,4 +49,11 @@
 			AND  user_state = 0
 			;
 	</select>
+	
+	<select id="login" parameterType="string" resultType="userVO">
+		SELECT *
+		FROM TABLE_USER
+		WHERE USER_ID = #{userId} and USER_PASSWORD = #{userPassword} and USER_STATE = '0'
+		
+	</select>
 </mapper>
