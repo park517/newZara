@@ -1,13 +1,16 @@
 // 중북 체크 여부 
 let idCheckYn = false;
+
+// 비밀번호 재입력 일치 여부 
 let passCheckYn = false;
+
 $( document ).ready(function() {
+	
 	// 회원가입 버튼 눌렀을 시 
 	$('#btnRegister').click( function() {
 		let check = confirm("회원 가입 하시겠습니까?") 
 		if(check) {
 				register();
-				//$('#registerForm').submit();
 		}
 	})
 	
@@ -24,6 +27,7 @@ $( document ).ready(function() {
 		 checkId();
 	})
 	
+	// 아이디 재 입력 시 중복체크 false로 바꾸기 미체크 방지 
 	$('#userId').keydown( function() {
 		idCheckYn = false;
 	})
@@ -33,12 +37,17 @@ $( document ).ready(function() {
 		if($('#userPassword').val() != $('#userPassword2').val()) {
 			alert("두 비밀번호가 일치하지 않습니다.");
 			$('#userPassword2').val("");
+			$('#userPassword2').focus();
 			$('#passChecking').css("display","none");
 		}
 		else {
 			$('#passChecking').css("display","");	
 			passCheckYn = true;
 		}
+	})
+	
+	$('#userPhone').keyup( function() {
+		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") );
 	})
 });
 
@@ -67,31 +76,98 @@ function checkId() {
 
 }
 
-// 회원가입 했을 시 유효성 체크 
+// 회원가입 시도
 function register() {
+	
+	// 빈 값 체크 
+	
+	// 아아디
 	var idCheck = inputVaildCheck(userId,"아이디를 입력해주세요","text");
 	if(!idCheck)  return false;
+	
+	// 비밀번호
 	var passCheck = inputVaildCheck(userPassword,"비밀번호를 입력해주세요","text");
 	if(!passCheck)  return false;
+	
+	// 비밀번호 확인 란
 	var passCheck1 =inputVaildCheck(userPassword2,"비밀번호 확인을 입력해주세요","text");
 	if(!passCheck1)  return false;
+	
+	// 사용자 이름
 	var nameCheck = inputVaildCheck(userName,"이름을 입력해주세요","text");
 	if(!nameCheck)  return false;
+	
+	// 닉네임
 	var nickCheck = inputVaildCheck(userNick,"닉네임을 입력해주세요","text");
 	if(!nickCheck)  return false;
+	
+	// 성별
+	if ($('input[name=userGender]:checked').length == 0) {
+		alert("성별을 선택해주세요");
+		return false;
+	}
+		
+	// 이메일
 	var emailCheck = inputVaildCheck(userEmail,"이메일을 입력해주세요","text");
 	if(!emailCheck)  return false;
+	
+	// 이메일 유효성 체크
+	if(vaildCheck('email',$('#userEmail').val()) == null) {
+		alert("이메일 형식에 맞게 다시 입력해주세요");
+		$('#userEmail').focus();
+		return false;
+	}
+	
+	// 주소 
 	var addrCheck = inputVaildCheck(sample4_postcode,"주소를 입력해주세요","text");
 	if(!addrCheck)  return false;
+	
+
+	
+	// 전화번호 
 	var telCheck = inputVaildCheck(userPhone,"햔두폰번호를 입력해주세요","text");
 	if(!telCheck)  return false;
-	var juminCheck = inputVaildCheck(userBirth,"주민번호를 입력해주세요","text");
-	if(!juminCheck)  return false;
+	
+	// 전화번호 유효성 체크
+	if(vaildCheck('phone',$('#userPhone').val()) == null) {
+		alert("전화번호 형식에 맞게 다시 입력해주세요");
+		$('#userPhone').focus();
+		return false;
+	}
+	
+	// 주민번호 
+	var FjuminCheck = inputVaildCheck(userBirthF,"주민번호를 입력해주세요","text");
+	var BjuminCheck = inputVaildCheck(userBirthB,"주민번호 뒷자리를 입력해주세요","text");
+	if(!FjuminCheck || !BjuminCheck)  return false;
+	let jumin = $('#userBirthF').val()+"-"+$('#userBirthB').val();
+	if(vaildCheck('jumin',jumin) == null ) {
+		alert("주민등록번호 형식을 확인해주세요");
+		$('#userBirthF').focus();
+		return false;	
+	}	
 	
 	$('#registerForm').submit();
 }
 
+// 값 형식 체크 
+function vaildCheck(type,value) {
+	let regExp;
+	
+	if(type == 'email') {
+		regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	}
+	
+	if(type == 'phone') {
+		regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+	}
+	
+	if(type == 'jumin') {
+		regExp = /\d{6}\-[1-4]\d{6}/;
+	}
+	
+	return value.match(regExp);
 
+}
 
 // 주소 검색 api 사용 
 function sample4_execDaumPostcode() {

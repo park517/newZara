@@ -149,9 +149,9 @@
 		                <tr>
 		                    <td><label for="">주민등록번호</label></td>
 		                    <td>
-		                  	  <input name="userBirth" style="width : 40% ; display: inline-block;" id = "userBirth"  type="text" class="form-control">
+		                  	  <input name="userBirth" style="width : 40% ; display: inline-block;" id = "userBirthF"  type="text" class="form-control">
 		                  	  <span style = "font-size : 30px;"> -</span>
-		                  	  <input type="password" name="userBirth" style="width : 40% ; display: inline-block;" id = "userBirth"  type="text" class="form-control">
+		                  	  <input type="password" name="userBirth" style="width : 40% ; display: inline-block;" id = "userBirthB"  type="text" class="form-control">
 		                    </td>
 		                    
 		                </tr>
