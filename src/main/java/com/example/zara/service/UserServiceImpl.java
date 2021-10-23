@@ -43,4 +43,13 @@ public class UserServiceImpl implements UserService {
 		return userMapper.login(userId, userPassword);
 	}
 
+	// 아이디 , 비밀번호 찾기 
+	// @Param type : id, password
+	@Override
+	public String findAccount(UserVO userVO) {
+		
+		return userMapper.findAccount(userVO);
+		
+	}
+
 }

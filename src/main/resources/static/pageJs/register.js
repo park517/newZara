@@ -67,10 +67,10 @@ function checkId() {
 		}
 	}
 	
-	
 	var param = {
 		userId : $('#userId').val()
 	}
+	
 	zaraAjax("/user/idCheck",param,"POST",checkResult);
 	
 
@@ -112,7 +112,7 @@ function register() {
 	if(!emailCheck)  return false;
 	
 	// 이메일 유효성 체크
-	if(vaildCheck('email',$('#userEmail').val()) == null) {
+	if(regVaildCheck('email',$('#userEmail').val()) == null) {
 		alert("이메일 형식에 맞게 다시 입력해주세요");
 		$('#userEmail').focus();
 		return false;
@@ -129,7 +129,7 @@ function register() {
 	if(!telCheck)  return false;
 	
 	// 전화번호 유효성 체크
-	if(vaildCheck('phone',$('#userPhone').val()) == null) {
+	if(regVaildCheck('phone',$('#userPhone').val()) == null) {
 		alert("전화번호 형식에 맞게 다시 입력해주세요");
 		$('#userPhone').focus();
 		return false;
@@ -140,7 +140,7 @@ function register() {
 	var BjuminCheck = inputVaildCheck(userBirthB,"주민번호 뒷자리를 입력해주세요","text");
 	if(!FjuminCheck || !BjuminCheck)  return false;
 	let jumin = $('#userBirthF').val()+"-"+$('#userBirthB').val();
-	if(vaildCheck('jumin',jumin) == null ) {
+	if(regVaildCheck('jumin',jumin) == null ) {
 		alert("주민등록번호 형식을 확인해주세요");
 		$('#userBirthF').focus();
 		return false;	
@@ -149,25 +149,7 @@ function register() {
 	$('#registerForm').submit();
 }
 
-// 값 형식 체크 
-function vaildCheck(type,value) {
-	let regExp;
-	
-	if(type == 'email') {
-		regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	}
-	
-	if(type == 'phone') {
-		regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
-	}
-	
-	if(type == 'jumin') {
-		regExp = /\d{6}\-[1-4]\d{6}/;
-	}
-	
-	return value.match(regExp);
 
-}
 
 // 주소 검색 api 사용 
 function sample4_execDaumPostcode() {

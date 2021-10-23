@@ -72,7 +72,7 @@
 					                   </c:if>
 					                   <div style="text-align:center; margin-top : 5px;">
 						                    <div  style="width:100%;">
-						                        <span><a href="#">아이디</a> </span>|<span><a href="#"> 비밀번호</a></span> 찾기
+						                        <span><a href="/user/find">아이디 | 비밀번호 찾기</a></span> 
 						                        <p><a href="/user/register">회원가입</a></p>
 						                    </div>
 					                    </div>

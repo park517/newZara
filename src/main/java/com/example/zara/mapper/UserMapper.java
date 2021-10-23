@@ -22,4 +22,7 @@ public interface UserMapper {
 	// 로그인 하기
 	public UserVO login(@Param("userId") String userId , @Param("userPassword") String userPassword);
 	
+	// 아이디 , 비밀번호 찾기
+	public String findAccount(UserVO userVO);
+	
 }

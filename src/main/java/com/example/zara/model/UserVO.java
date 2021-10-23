@@ -25,6 +25,7 @@ public class UserVO {
 	private Date cDate; // 생성일
 	private Date dDate; // 삭제일
 	private Date llDate; // 마지막 로그인 일자 
+	private String findType; // 계정 찾기에 이용하려고 추가  
 	
 
 }

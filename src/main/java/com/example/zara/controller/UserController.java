@@ -41,8 +41,7 @@ public class UserController {
 		String addr = zipCode+"_"+loadAddr+"_"+detailAddr;
 		// 주민등록번호 형식 바꿔주기 
 		String jumin = userVO.getUserBirth();
-		jumin.replace(",", "-");
-		userVO.setUserBirth(jumin);
+		userVO.setUserBirth(jumin.replace(",", "-"));
 		userVO.setUserAddress(addr); 
 		userService.register(userVO);
 
@@ -93,4 +92,25 @@ public class UserController {
 		model.addAttribute("back",true);
 		return "common/redirect";
 	}
+	
+	// 아이디 , 비밀번호 찾기 페이지로 이동
+	@GetMapping("/find") 
+	public String findAccount() {
+		return "findAccount";
+	}
+	
+	// 아이디 비밀번호 찾기 
+	@PostMapping("/find")
+	@ResponseBody
+	public String findAccount(@RequestBody UserVO userVO) { 
+
+		System.out.println(userVO);
+		String account = userService.findAccount(userVO);
+		String subAccount = account.substring(0, 3);
+		for(int i = 3 ; i < account.length() ; i++) subAccount += "*";
+		System.out.println("찾은 정보 : "+account);
+		
+		return subAccount;
+	}
+	
 }

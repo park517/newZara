@@ -56,4 +56,33 @@
 		WHERE USER_ID = #{userId} and USER_PASSWORD = #{userPassword} and USER_STATE = '0'
 		
 	</select>
+	
+	<select id="findAccount" parameterType="userVO" resultType="string">
+	
+	
+		<!--  찾기 유형이 아이디 일 때  -->
+		<if test='findType.equals("id")'>
+			select user_id
+			from table_user
+			where 
+				user_name = #{userName}
+				AND
+				user_phone = #{userPhone}
+		</if>
+		
+		<!--  찾기 유형이 비밀번호 일 때  -->
+		<if test='findType.equals("password")'>
+			select user_password
+			from table_user
+			where
+				user_id = #{userId}
+				AND
+				user_name = #{userName}
+				AND
+				user_email = #{userEmail}
+				
+		
+		</if>
+	
+	</select>
 </mapper>
