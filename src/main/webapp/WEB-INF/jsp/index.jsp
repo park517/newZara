@@ -53,7 +53,7 @@
 				                       </div>
 	                                   <div  style="width:100%;">
 				                           <div class="form-group">
-				                               <input class="form-control" name="userPassword" id="userPassword" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your PW'" placeholder='Enter your PW'>
+				                               <input class="form-control" name="userPassword" id="userPassword" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your PW'" placeholder='Enter your PW'>
 				                           </div>
 				                       </div>
 				                       
