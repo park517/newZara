@@ -79,6 +79,7 @@ function findAccount(type) {
 	
 	else {
 		
+		
 		// 아이디 널값 체크
 		var idCheck = inputVaildCheck(userId,"아이디를 입력해주세요","text");
 		if(!idCheck)  return false;

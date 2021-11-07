@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,15 @@
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_social_icon">
-                            <span><a href = "#">로그인</a></span>
-                            <span><a href = "#">회원가입</a></span>
+                    		<c:if test="${empty loginUser}">
+                            	<span><a href = "/user/register">회원가입</a></span>
+                            </c:if>
+                            
+                           	<c:if test="${not empty loginUser}">
+	                            <span>${loginUser.userName}님 환영합니다.</span>
+	                            <span><a href = "/user/userCheck/0">마이페이지</a></span>
+	                            <span><a href = "#">로그아웃</a></span> 
+                           	</c:if>
                     <!--         <span><a href = "#">로그아웃</a></span>
                             <span><a href = "#">마이페이지</a></span> -->
                         </div>

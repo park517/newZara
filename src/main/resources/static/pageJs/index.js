@@ -9,7 +9,20 @@ $( document ).ready(function() {
 		logout();
 	})
 	
+	$('#btn_mypage').click( function() {
+		mypage();
+	})
+
 })
+
+
+
+// 마이페이지 이동
+
+function mypage() {
+	loaction.href = "/user/mypage";
+}
+
 
 // 로그인 
 
@@ -27,11 +40,12 @@ function login() {
 	}	
 	
 	var param = {
+		
 		userId : $('#userId').val(),
 		userPassword : $('#userPassword').val()
 	
 	}
-	zaraAjax("/user/login",param,"POST",checkResult);
+	zaraAjax("/user/login",param,"POST",checkResult,"text");
 	
 }
 

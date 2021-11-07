@@ -15,12 +15,11 @@ function zaraAjax(url, param,method ,callBack,type) {
 				method :method,
 				dataType : "text",
 				success : callBack,
-				contentType: 'application/json',
 				error : function(a, b, c){
 					//통신 실패시 발생하는 함수(콜백)
 					alert(a + b + c);
 				}
-	
+				
 		});		
 		
 	}

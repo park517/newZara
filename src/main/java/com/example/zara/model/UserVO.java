@@ -22,8 +22,8 @@ public class UserVO {
 	private String userPhone; // 유저 연락처
 	private String userGender; // 유저 성별
 	private String userBirth; // 주민등록번호
-	private Date cDate; // 생성일
-	private Date dDate; // 삭제일
+	private Date userCDate; // 생성일
+	private Date userDDate; // 삭제일
 	private Date llDate; // 마지막 로그인 일자 
 	private String findType; // 계정 찾기에 이용하려고 추가  
 	
